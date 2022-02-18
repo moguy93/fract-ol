@@ -6,7 +6,7 @@
 #    By: moguy <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/14 02:35:52 by moguy             #+#    #+#              #
-#    Updated: 2019/04/26 16:32:40 by moguy            ###   ########.fr        #
+#    Updated: 2022/02/18 13:59:34 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRCS_PATH = srcs/
 
 MLX_NAME = libmlx.a
 
-MLX_DIR = /usr/local/lib/
+MLX_DIR = mlx_opengl/
 
 HDR_NAME = fract_ol.h
 
@@ -95,7 +95,7 @@ $(LIB) : FORCE
 			@make -C $(LIB_PATH)
 
 %.o : %.c $(HDR)
-			@$(CC) $(CFLAGS) -c $< -o $@ -I includes/
+			@$(CC) $(CFLAGS) -c $< -o $@ -I includes/ -I mlx_opengl
 
 clean : $(SRCS)
 			@make -C libft/ clean

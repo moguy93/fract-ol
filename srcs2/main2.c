@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 04:24:31 by moguy             #+#    #+#             */
-/*   Updated: 2019/04/02 11:56:14 by moguy            ###   ########.fr       */
+/*   Updated: 2022/02/18 14:01:35 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ static void	launch_buttons(void *mlx)
 	((t_mlx*)mlx)->data = mlx_get_data_addr(((t_mlx*)mlx)->img,
 		&(((t_mlx*)mlx)->bpp), &(((t_mlx*)mlx)->siz), &(((t_mlx*)mlx)->end));
 	ft_buttons(mlx);
-	mlx_key_hook(((t_mlx*)mlx)->win, deal_exit2, mlx);
-	mlx_hook(((t_mlx*)mlx)->win, 17, 1L << 17, close, mlx);
+	mlx_key_hook(((t_mlx*)mlx)->win, (int (*)(void))deal_exit2, mlx);
+	mlx_hook(((t_mlx*)mlx)->win, 17, 1L << 17, (int (*)(void))close, mlx);
 	mlx_loop(((t_mlx*)mlx)->mlx);
 }
 

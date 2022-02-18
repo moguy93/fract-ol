@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 04:24:31 by moguy             #+#    #+#             */
-/*   Updated: 2019/07/13 03:21:57 by moguy            ###   ########.fr       */
+/*   Updated: 2022/02/18 14:00:57 by gedemais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,12 @@ int			main(int argc, char **argv)
 	mlx.mode = ft_mode(argv);
 	init_pack(&mlx);
 	init_mlx(&mlx);
-	mlx_hook(mlx.win, 2, 1L << 0, deal_key2, &mlx);
-	mlx_mouse_hook(mlx.win, deal_mouse3, &mlx);
+	mlx_hook(mlx.win, 2, 1L << 0, (int (*)(void))deal_key2, &mlx);
+	mlx_mouse_hook(mlx.win, (int (*)(void))deal_mouse3, &mlx);
 	if (mlx.mode == 3)
-		mlx_hook(mlx.win, 6, 0, deal_move2, &mlx);
-	mlx_hook(mlx.win, 17, 1L << 17, exit, &mlx);
-	mlx_loop_hook(mlx.mlx, deal_loop, &mlx);
+		mlx_hook(mlx.win, 6, 0, (int (*)(void))deal_move2, &mlx);
+	mlx_hook(mlx.win, 17, 1L << 17, (int (*)(void))exit, &mlx);
+	mlx_loop_hook(mlx.mlx, (int (*)(void))deal_loop, &mlx);
 	mlx_loop(mlx.mlx);
 	return (0);
 }
